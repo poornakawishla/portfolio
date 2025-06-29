@@ -258,16 +258,6 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <button
-          onClick={scrollToAbout}
-          className="scroll-reveal absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gray-400 dark:text-text-secondary hover:text-brand-primary dark:hover:text-brand-primary transition-all duration-200 hover:scale-110 group"
-        >
-          <ChevronDown
-            size={32}
-            className="animate-bounce group-hover:animate-pulse"
-          />
-        </button>
       </div>
     </section>
   );
