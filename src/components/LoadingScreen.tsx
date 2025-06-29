@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Palette, Code, Lightbulb, Smartphone } from 'lucide-react';
+import logo from '../assets/Standalone Symbol-4.png'
 
 interface LoadingScreenProps {
   onLoadingComplete: () => void;
@@ -92,7 +93,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
               className="w-12 h-12 flex items-center justify-center"
             >
               <img 
-                src="/src/assets/Standalone Symbol-4.png" 
+                src={logo} 
                 alt="Poorna Logo" 
                 className="w-10 h-10"
               />
