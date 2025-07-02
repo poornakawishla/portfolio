@@ -58,9 +58,9 @@ const Resources: React.FC = () => {
           title: "LayrrKit",
           description:
             "Helpful tool link collection for designers and developers to streamline their workflow.",
-          url: "#",
+          url: "./error",
           color: "from-purple-500 to-indigo-500",
-          isExternal: true,
+          isExternal: false,
         },
         // {
         //   icon: FileText,

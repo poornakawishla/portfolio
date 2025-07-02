@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, ExternalLink, Figma, Calendar, User, Target, Users, Lightbulb, Smartphone, Eye } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Figma, Calendar, User, Target, Users, Smartphone, Eye } from 'lucide-react';
 
 interface CaseStudyProps {
   onBack: () => void;
