@@ -1,41 +1,75 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Poorna Kawishla – UI/UX Designer Portfolio | Sri Lanka</title>
 
-    <!-- Favicon -->
-    <link rel="icon" href="./src/assets/Standalone Symbol-4.png" type="image/svg+xml" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Poorna Kawishla – UI/UX Designer Portfolio | Sri Lanka</title>
 
-    <!-- Primary Meta Tags -->
-    <meta name="title" content="Poorna Kawishla – UI/UX Designer Portfolio | Sri Lanka">
-    <meta name="description" content="Portfolio of Poorna Kawishla, a UI/UX Designer based in Sri Lanka. Explore case studies, user flows, and design systems with a clean, minimal aesthetic.">
+  <!-- Favicon -->
+  <link rel="icon" href="./src/assets/Standalone Symbol-4.png" type="image/svg+xml" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://poorna.xyz/">
-    <meta property="og:title" content="Poorna Kawishla – UI/UX Designer Portfolio">
-    <meta property="og:description" content="Clean, modern UX/UI portfolio by Poorna Kawishla. Browse design case studies, prototypes, and branding work.">
-    <meta property="og:image" content="https://poorna.xyz/og-image.png">
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Poorna Kawishla – UI/UX Designer Portfolio | Sri Lanka">
+  <meta name="description"
+    content="Portfolio of Poorna Kawishla, a UI/UX Designer based in Sri Lanka. Explore case studies, user flows, and design systems with a clean, minimal aesthetic.">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://poorna.xyz/">
-    <meta property="twitter:title" content="Poorna Kawishla – UI/UX Designer Portfolio">
-    <meta property="twitter:description" content="Minimal, powerful UI/UX work by Poorna Kawishla. Explore Figma prototypes, live projects, and design systems.">
-    <meta property="twitter:image" content="https://poorna.xyz/og-image.png">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://poorna.xyz/">
+  <meta property="og:title" content="Poorna Kawishla – UI/UX Designer Portfolio">
+  <meta property="og:description"
+    content="Clean, modern UX/UI portfolio by Poorna Kawishla. Browse design case studies, prototypes, and branding work.">
+  <meta property="og:image" content="https://poorna.xyz/og-image.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://poorna.xyz/">
+  <meta property="twitter:title" content="Poorna Kawishla – UI/UX Designer Portfolio">
+  <meta property="twitter:description"
+    content="Minimal, powerful UI/UX work by Poorna Kawishla. Explore Figma prototypes, live projects, and design systems.">
+  <meta property="twitter:image" content="https://poorna.xyz/og-image.png">
 
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://poorna.xyz/" />
-  </head>
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://poorna.xyz/" />
+
+  <script>
+    // Block F12, Ctrl+Shift+I, Ctrl+U, Ctrl+Shift+J
+    document.addEventListener('keydown', function (e) {
+      if (
+        e.key === 'F12' ||
+        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) ||
+        (e.ctrlKey && e.key === 'U')
+      ) {
+        e.preventDefault();
+      }
+    });
+
+    // Block right-click
+    document.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+    });
+
+    // Basic devtools detection (timing based)
+    setInterval(function () {
+      const before = new Date().getTime();
+      debugger;
+      const after = new Date().getTime();
+      if (after - before > 100) {
+        document.body.innerHTML = '';
+        alert('DevTools detected. Page blocked.');
+      }
+    }, 1000);
+  </script>
+
+</head>
 
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>
-
