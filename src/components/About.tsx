@@ -54,12 +54,11 @@ const About: React.FC = () => {
           <h2 className="scroll-reveal text-3xl md:text-4xl font-bold text-gray-900 dark:text-text-primary mb-4">
             Do you know me?
           </h2>
-          <p className="scroll-reveal text-xl text-gray-600 dark:text-text-secondary max-w-3xl mx-auto">
-            I’m a passionate UI/UX designer dedicated to creating meaningful
-            digital experiences that solve real problems and delight users.
-            Known for my Blue personality—empathetic, calm, and detail-focused—I
-            bring a user-first mindset to every design I create. Oh, and if
-            you’re into Formula 1, we’ll have Cofee to talk about.
+          <p className="scroll-reveal text-xl text-gray-600 dark:text-text-secondary max-w-full mx-auto">
+            I’m a passionate UI/UX designer focused on crafting meaningful,
+            user-centered digital experiences. With an empathetic, calm,
+            detail oriented “Blue” personality, I put users first in every
+            design. And if you’re an F1 fan, let’s grab coffee and chat!
           </p>
         </div>
 
