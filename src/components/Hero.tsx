@@ -32,7 +32,7 @@ const Hero: React.FC = () => {
 
   const handleResumeClick = () => {
     const resumeUrl =
-      "https://drive.google.com/file/d/1w4fUgStAoMSrAJn4CE67_6NHVxBKcWhY/view?usp=sharing";
+      "https://drive.google.com/file/d/1z5-Es0A282X83afGNjwFAuvhDNgIaQkv/view?usp=sharing";
     window.open(resumeUrl, "_blank", "noopener,noreferrer");
   };
 
@@ -134,9 +134,7 @@ const Hero: React.FC = () => {
                     />
                   </button>
                 </a>
-                <a
-                  href="https://www.figma.com/@poornakawishla" target="_blank"
-                >
+                <a href="https://www.figma.com/@poornakawishla" target="_blank">
                   <button className="w-10 h-10 bg-white dark:bg-bg-dark border border-gray-200 dark:border-text-secondary/20 rounded-lg flex items-center justify-center text-gray-600 dark:text-text-secondary hover:text-brand-primary dark:hover:text-brand-primary hover:border-brand-primary/50 dark:hover:border-brand-primary/50 transition-all duration-200 hover:scale-110 group">
                     <Figma
                       size={18}
@@ -186,7 +184,11 @@ const Hero: React.FC = () => {
                     title: "Research",
                     desc: "User interviews & analysis",
                   },
-                  { step: 2, title: "Ideate", desc: "Creating project concepts" },
+                  {
+                    step: 2,
+                    title: "Ideate",
+                    desc: "Creating project concepts",
+                  },
                   {
                     step: 3,
                     title: "Design",
@@ -257,7 +259,6 @@ const Hero: React.FC = () => {
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );
