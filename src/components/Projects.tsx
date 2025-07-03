@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ExternalLink, Figma, Eye, X, Layers } from "lucide-react";
+import { ExternalLink, Figma, Eye, X, Layers, ChevronLeft, ChevronRight } from "lucide-react";
 import { useParallax } from "../hooks/useParallax";
 import Casestudycover from "../assets/case-studies/Thumbnail.png";
 import Elara from "../assets/case-studies/elara.png";
@@ -9,7 +9,9 @@ import AURAYA from "../assets/case-studies/AURAYA.jpg";
 const Projects: React.FC = () => {
   const navigate = useNavigate();
   const scrollY = useParallax();
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const [selectedImages, setSelectedImages] = useState<string[] | null>(null);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const projects = [
     {
@@ -21,7 +23,8 @@ const Projects: React.FC = () => {
       tags: ["UI UX", "Case Study", "Research"],
       figmaUrl:
         "https://www.figma.com/team_invite/redeem/YjedF1SqGuPkDAcpQXIQb9",
-      liveUrl: "https://www.figma.com/proto/9n1RBa9jPmUYn9uKj8pdrI/My-Dialog-App-Case-Study?node-id=5-1308&t=F8wqcfGI1A2PhKY4-1",
+      liveUrl:
+        "https://www.figma.com/proto/9n1RBa9jPmUYn9uKj8pdrI/My-Dialog-App-Case-Study?node-id=5-1308&t=F8wqcfGI1A2PhKY4-1",
       category: "Mobile App",
       hasCaseStudy: true,
       isUIProject: true,
@@ -47,8 +50,8 @@ const Projects: React.FC = () => {
         "Creative concept development and social media design for AURAYA, a luxury handbag brand, featuring sophisticated visual identity and marketing materials.",
       image: AURAYA,
       tags: ["Social Media Post", "Photoshop"],
-      figmaUrl: "https://dribbble.com/shots/26149802-Introducing-AURAYA-a-luxury-handbag-concept-brand",
-      liveUrl: "https://dribbble.com/shots/26149802-Introducing-AURAYA-a-luxury-handbag-concept-brand",
+      liveUrl:
+        "https://dribbble.com/shots/26149802-Introducing-AURAYA-a-luxury-handbag-concept-brand",
       category: "Brand Concept",
       hasCaseStudy: false,
       isUIProject: false,
@@ -73,16 +76,26 @@ const Projects: React.FC = () => {
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
-  const handleViewProject = (url: string) => {
-    window.open(url, "_blank", "noopener,noreferrer");
-  };
-
-  const handleImagePreview = (imageUrl: string) => {
-    setSelectedImage(imageUrl);
+  const handleImagePreview = (images: string[], index = 0) => {
+    setSelectedImages(images);
+    setCurrentIndex(index);
   };
 
   const closeImagePreview = () => {
-    setSelectedImage(null);
+    setSelectedImages(null);
+    setCurrentIndex(0);
+  };
+
+  const goPrev = () => {
+    if (selectedImages) {
+      setCurrentIndex((currentIndex - 1 + selectedImages.length) % selectedImages.length);
+    }
+  };
+
+  const goNext = () => {
+    if (selectedImages) {
+      setCurrentIndex((currentIndex + 1) % selectedImages.length);
+    }
   };
 
   return (
@@ -90,7 +103,7 @@ const Projects: React.FC = () => {
       id="projects"
       className="py-20 bg-bg-light dark:bg-bg-dark transition-colors duration-300 relative overflow-hidden"
     >
-      {/* Parallax Background Elements - Only on larger screens */}
+      {/* parallax decor */}
       <div className="hidden lg:block">
         <div
           className="absolute top-20 left-10 w-28 h-28 bg-gradient-to-br from-brand-primary/5 to-brand-gradient-end/5 rounded-full blur-xl"
@@ -99,19 +112,17 @@ const Projects: React.FC = () => {
         <div
           className="absolute bottom-10 right-20 w-20 h-20 bg-gradient-to-br from-brand-gradient-end/5 to-brand-primary/5 rounded-lg rotate-45 blur-lg"
           style={{
-            transform: `translateY(${scrollY * 0.08}px) rotate(${
-              45 + scrollY * 0.03
-            }deg)`,
+            transform: `translateY(${scrollY * 0.08}px) rotate(${45 + scrollY * 0.03}deg)`,
           }}
         ></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="scroll-reveal text-3xl md:text-4xl font-bold text-gray-900 dark:text-text-primary mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-text-primary mb-4">
             Featured Projects
           </h2>
-          <p className="scroll-reveal text-xl text-gray-600 dark:text-text-secondary max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-text-secondary max-w-3xl mx-auto">
             A showcase of my recent design work, demonstrating user-centered
             design principles and creative problem-solving.
           </p>
@@ -121,7 +132,7 @@ const Projects: React.FC = () => {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="scroll-reveal bg-white dark:bg-bg-dark rounded-2xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden group border border-gray-100 dark:border-text-secondary/20"
+              className="bg-white dark:bg-bg-dark rounded-2xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden group border border-gray-100 dark:border-text-secondary/20"
             >
               <div className="relative overflow-hidden">
                 <img
@@ -136,52 +147,61 @@ const Projects: React.FC = () => {
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-4 right-4 flex space-x-2">
-                    {/* UI/UX Projects - Show Figma and Prototype icons */}
-                    {project.isUIProject ? (
+                    {project.id === 3 ? (
                       <>
                         <button
-                          onClick={() => handleFigmaClick(project.figmaUrl)}
+                          onClick={() =>
+                            handleImagePreview(
+                              [
+                                "src/assets/AURAYA/AURAYA1.jpg",
+                                "src/assets/AURAYA/AURAYA2.jpg",
+                                "src/assets/AURAYA/AURAYA3.jpg",
+                                "src/assets/AURAYA/AURAYA4.jpg",
+                              ],
+                              0
+                            )
+                          }
                           className="p-2 bg-white/90 rounded-full text-gray-700 hover:bg-white transition-all duration-200 hover:scale-110 group"
-                          title="View Figma File"
+                          title="Preview Images"
                         >
-                          <Figma
-                            size={18}
-                            className="transition-transform duration-200"
-                          />
-                        </button>
-                        <button
-                          onClick={() => handleLiveClick(project.liveUrl)}
-                          className="p-2 bg-white/90 rounded-full text-gray-700 hover:bg-white transition-all duration-200 hover:scale-110 group"
-                          title="View Prototype"
-                        >
-                          <Layers
-                            size={18}
-                            className="transition-transform duration-200"
-                          />
+                          <Eye size={18} />
                         </button>
                       </>
                     ) : (
-                      /* Other Projects - Show Preview icon */
-                      <button
-                        onClick={() => handleImagePreview(project.image)}
-                        className="p-2 bg-white/90 rounded-full text-gray-700 hover:bg-white transition-all duration-200 hover:scale-110 group"
-                        title="Preview Image"
-                      >
-                        <Eye
-                          size={18}
-                          className="transition-transform duration-200"
-                        />
-                      </button>
+                      <>
+                        {project.isUIProject && (
+                          <>
+                            <button
+                              onClick={() => handleFigmaClick(project.figmaUrl!)}
+                              className="p-2 bg-white/90 rounded-full text-gray-700 hover:bg-white transition-all duration-200 hover:scale-110 group"
+                              title="View Figma File"
+                            >
+                              <Figma size={18} />
+                            </button>
+                            <button
+                              onClick={() => handleLiveClick(project.liveUrl)}
+                              className="p-2 bg-white/90 rounded-full text-gray-700 hover:bg-white transition-all duration-200 hover:scale-110 group"
+                              title="View Prototype"
+                            >
+                              <Layers size={18} />
+                            </button>
+                          </>
+                        )}
+                        <button
+                          onClick={() => handleImagePreview([project.image])}
+                          className="p-2 bg-white/90 rounded-full text-gray-700 hover:bg-white transition-all duration-200 hover:scale-110 group"
+                          title="Preview"
+                        >
+                          <Eye size={18} />
+                        </button>
+                      </>
                     )}
                     <button
                       onClick={() => handleLiveClick(project.liveUrl)}
                       className="p-2 bg-white/90 rounded-full text-gray-700 hover:bg-white transition-all duration-200 hover:scale-110 group"
                       title="View Project"
                     >
-                      <ExternalLink
-                        size={18}
-                        className="transition-transform duration-200"
-                      />
+                      <ExternalLink size={18} />
                     </button>
                   </div>
                 </div>
@@ -194,7 +214,6 @@ const Projects: React.FC = () => {
                 <p className="text-gray-600 dark:text-text-secondary mb-4 leading-relaxed">
                   {project.description}
                 </p>
-
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map((tag) => (
                     <span
@@ -206,9 +225,7 @@ const Projects: React.FC = () => {
                   ))}
                 </div>
 
-                {/* Action Buttons */}
                 <div className="space-y-3">
-                  {/* Primary Action */}
                   <div className="flex justify-center">
                     {project.hasCaseStudy ? (
                       <button
@@ -219,26 +236,25 @@ const Projects: React.FC = () => {
                       </button>
                     ) : (
                       <button
-                        onClick={() => handleViewProject(project.liveUrl)}
+                        onClick={() =>
+                          project.id === 3
+                            ? handleImagePreview(
+                                [
+                                  "src/assets/AURAYA/AURAYA1.jpg",
+                                  "src/assets/AURAYA/AURAYA2.jpg",
+                                  "src/assets/AURAYA/AURAYA3.jpg",
+                                  "src/assets/AURAYA/AURAYA4.jpg",
+                                ],
+                                0
+                              )
+                            : handleLiveClick(project.liveUrl)
+                        }
                         className="w-full px-6 py-3 bg-gradient-to-r from-brand-gradient-start to-brand-gradient-end text-white rounded-lg font-medium hover:from-brand-primary hover:to-brand-gradient-end transition-all duration-200 hover:scale-105 shadow-sm hover:shadow-md"
                       >
                         View Project
                       </button>
                     )}
                   </div>
-
-                  {/* Secondary Action - Only for UI Projects */}
-                  {project.isUIProject && (
-                    <div className="flex justify-center">
-                      <button
-                        onClick={() => handleFigmaClick(project.figmaUrl)}
-                        className="w-full px-6 py-3 border border-brand-primary text-brand-primary rounded-lg font-medium hover:bg-brand-primary hover:text-white transition-all duration-200 hover:scale-105"
-                      >
-                        <Figma size={16} className="inline mr-2" />
-                        Figma File
-                      </button>
-                    </div>
-                  )}
                 </div>
               </div>
             </div>
@@ -246,23 +262,32 @@ const Projects: React.FC = () => {
         </div>
       </div>
 
-      {/* Image Preview Modal */}
-      {selectedImage && (
+      {/* Image Slider Modal */}
+      {selectedImages && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="relative max-w-4xl max-h-full">
-            <button
-              onClick={closeImagePreview}
-              aria-label="Close preview"
-              className="absolute top-4 right-4 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-all duration-200 hover:scale-110"
-            >
-              <X size={20} />
-            </button>
-            <img
-              src={selectedImage}
-              alt="Project Preview"
-              className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
-            />
-          </div>
+          <button
+            onClick={closeImagePreview}
+            className="absolute top-4 right-4 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-all duration-200 hover:scale-110"
+          >
+            <X size={20} />
+          </button>
+          <button
+            onClick={goPrev}
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white"
+          >
+            <ChevronLeft size={24} />
+          </button>
+          <img
+            src={selectedImages[currentIndex]}
+            alt="Project Preview"
+            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl transition-all duration-300"
+          />
+          <button
+            onClick={goNext}
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white"
+          >
+            <ChevronRight size={24} />
+          </button>
         </div>
       )}
     </section>
