@@ -1,6 +1,6 @@
 import React from "react";
 import { Heart, Code, Sparkles, Zap, Star, Rocket } from "lucide-react";
-import logo from "../assets/Standalone Symbol-4.png"; // Adjust the path as necessary
+import logo from "../assets/primary logo.svg"; // Adjust the path as necessary
 
 const Footer: React.FC = () => {
   return (

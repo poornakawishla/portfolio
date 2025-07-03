@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Palette, Code, Lightbulb, Smartphone } from 'lucide-react';
-import logo from '../assets/Standalone Symbol-4.png'
+import logo from '../assets/Symbol.svg'
 
 interface LoadingScreenProps {
   onLoadingComplete: () => void;

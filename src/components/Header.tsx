@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import Logo from "../assets/Wide Logo-2.svg";
+import Logo from "../assets/Logo.svg";
 import { useNavigate } from "react-router-dom";
 import {
   User,
@@ -173,7 +173,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, scrollToSection }) => {
                 <img
                   src={Logo}
                   alt="Poorna Logo"
-                  className="h-14 w-auto transition-transform duration-200 group-hover:scale-105"
+                  className="h-12 w-auto transition-transform duration-200 group-hover:scale-105"
                 />
                 <div className="absolute -inset-1 bg-gradient-to-r from-brand-gradient-start/20 to-brand-gradient-end/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 -z-10"></div>
               </div>
