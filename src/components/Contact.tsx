@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { HiMail, HiLocationMarker, HiPhone, HiChevronDown, HiChatAlt } from "react-icons/hi";
-import { FaLinkedinIn, FaDribbble, FaFigma } from "react-icons/fa";
+import { FaLinkedinIn, FaDribbble, FaFigma, FaBehance } from "react-icons/fa";
 
 const Contact: React.FC = () => {
   const [isProjectTypeOpen, setIsProjectTypeOpen] = useState(false);
@@ -19,6 +19,12 @@ const Contact: React.FC = () => {
       label: "LinkedIn",
       url: "https://www.linkedin.com/in/poornakawishla/",
       color: "hover:text-brand-primary",
+    },
+    {
+      icon: FaBehance,
+      label: "Behance",
+      url: "https://behance.net/poornakawishla",
+      color: "hover:text-blue-500",
     },
     {
       icon: FaDribbble,

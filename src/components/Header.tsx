@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Logo from "../assets/Logo.svg";
 import { useNavigate } from "react-router-dom";
 import { HiUser, HiBriefcase, HiMail, HiChevronDown, HiX, HiMenu, HiGlobe } from "react-icons/hi";
-import { FaLinkedinIn, FaFileAlt, FaPencilAlt, FaLayerGroup, FaTools } from "react-icons/fa";
+import { FaLinkedinIn, FaFileAlt, FaPencilAlt, FaLayerGroup, FaTools, FaBehance } from "react-icons/fa";
 
 interface HeaderProps {
   activeSection: string;
@@ -50,6 +50,13 @@ const Header: React.FC<HeaderProps> = ({ activeSection, scrollToSection }) => {
           title: "Medium Profile",
           description: "Read my latest articles and insights",
           url: "https://medium.com/@poornakawishla",
+          isExternal: true,
+        },
+        {
+          icon: FaBehance,
+          title: "Behance Portfolio",
+          description: "View my creative work and projects",
+          url: "https://behance.net/poornakawishla",
           isExternal: true,
         },
       ],

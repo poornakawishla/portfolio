@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { HiDownload, HiChatAlt, HiColorSwatch } from "react-icons/hi";
-import { FaFigma, FaDribbble } from "react-icons/fa";
+import { FaFigma, FaDribbble, FaBehance } from "react-icons/fa";
 import { useParallax } from "../hooks/useParallax";
 
 const Hero: React.FC = () => {
@@ -123,6 +123,18 @@ const Hero: React.FC = () => {
                 >
                   <button className="w-10 h-10 bg-white dark:bg-bg-dark border border-gray-200 dark:border-text-secondary/20 rounded-lg flex items-center justify-center text-gray-600 dark:text-text-secondary hover:text-brand-primary dark:hover:text-brand-primary hover:border-brand-primary/50 dark:hover:border-brand-primary/50 transition-all duration-200 hover:scale-110 group">
                     <FaDribbble
+                      size={18}
+                      className="transition-transform duration-200"
+                    />
+                  </button>
+                </a>
+                <a
+                  href="https://behance.net/poornakawishla"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="w-10 h-10 bg-white dark:bg-bg-dark border border-gray-200 dark:border-text-secondary/20 rounded-lg flex items-center justify-center text-gray-600 dark:text-text-secondary hover:text-brand-primary dark:hover:text-brand-primary hover:border-brand-primary/50 dark:hover:border-brand-primary/50 transition-all duration-200 hover:scale-110 group">
+                    <FaBehance
                       size={18}
                       className="transition-transform duration-200"
                     />
