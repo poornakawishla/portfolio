@@ -115,7 +115,7 @@ const Projects: React.FC = () => {
         </div>
 
         {/* View More Projects Button */}
-        {!showAllProjects && (
+        {/* {!showAllProjects && (
           <div className="text-center mt-12">
             <button
               onClick={() => setShowAllProjects(true)}
@@ -125,7 +125,7 @@ const Projects: React.FC = () => {
               <span>View More Projects</span>
             </button>
           </div>
-        )}
+        )} */}
 
         {/* Show Less Button */}
         {showAllProjects && (
