@@ -96,7 +96,11 @@ export const additionalProjects = [
     platform: "Web Application",
     fullDescription: "This FinTech dashboard project aimed to simplify complex financial data into an intuitive and accessible interface. The design prioritizes clarity, security, and ease of use for both novice and experienced users.",
     features: [
-     
+      "Real-time financial data visualization",
+      "Intuitive transaction management",
+      "Advanced security features",
+      "Responsive design for all devices",
+      "Accessibility-first approach"
     ]
   },
   {
