@@ -1,5 +1,6 @@
 import React from 'react';
-import { HiX, HiExternalLink, HiCalendar, HiUser, HiTarget } from 'react-icons/hi';
+import { HiX, HiExternalLink, HiCalendar, HiUser } from 'react-icons/hi';
+import { Target } from 'lucide-react';
 import { FaFigma, FaBehance } from 'react-icons/fa';
 
 interface ProjectModalProps {
@@ -99,7 +100,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
             </div>
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-gradient-to-r from-brand-gradient-start to-brand-gradient-end rounded-lg flex items-center justify-center text-white">
-                <HiTarget size={16} />
+                <Target size={16} />
               </div>
               <div>
                 <p className="text-xs text-gray-500 dark:text-text-secondary">Platform</p>

@@ -1,5 +1,6 @@
 import React from "react";
-import { HiColorSwatch, HiUsers, HiLightBulb, HiTarget } from "react-icons/hi";
+import { HiColorSwatch, HiUsers, HiLightBulb } from "react-icons/hi";
+import { Target } from "lucide-react";
 import { useParallax } from "../hooks/useParallax";
 
 const About: React.FC = () => {
@@ -22,7 +23,7 @@ const About: React.FC = () => {
       description: "Turning complex problems into simple solutions",
     },
     {
-      icon: HiTarget,
+      icon: Target,
       title: "Strategy",
       description: "Aligning design decisions with business objectives",
     },
