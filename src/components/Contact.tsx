@@ -1,14 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import {
-  Mail,
-  MapPin,
-  Phone,
-  Linkedin,
-  Dribbble,
-  Figma,
-  ChevronDown,
-  MessageCircle,
-} from "lucide-react";
+import { HiMail, HiLocationMarker, HiPhone, HiChevronDown, HiChatAlt } from "react-icons/hi";
+import { FaLinkedinIn, FaDribbble, FaFigma } from "react-icons/fa";
 
 const Contact: React.FC = () => {
   const [isProjectTypeOpen, setIsProjectTypeOpen] = useState(false);
@@ -16,26 +8,26 @@ const Contact: React.FC = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const contactInfo = [
-    { icon: Mail, label: "Email", value: "hi@poorna.xyz" },
-    { icon: MapPin, label: "Location", value: "Kuliyapitiya,Sri Lanka" },
-    { icon: Phone, label: "Phone", value: "(+94) 77 760 4869" },
+    { icon: HiMail, label: "Email", value: "hi@poorna.xyz" },
+    { icon: HiLocationMarker, label: "Location", value: "Kuliyapitiya,Sri Lanka" },
+    { icon: HiPhone, label: "Phone", value: "(+94) 77 760 4869" },
   ];
 
   const socialLinks = [
     {
-      icon: Linkedin,
+      icon: FaLinkedinIn,
       label: "LinkedIn",
       url: "https://www.linkedin.com/in/poornakawishla/",
       color: "hover:text-brand-primary",
     },
     {
-      icon: Dribbble,
+      icon: FaDribbble,
       label: "Dribbble",
       url: "https://dribbble.com/poornakawishla",
       color: "hover:text-brand-gradient-end",
     },
     {
-      icon: Figma,
+      icon: FaFigma,
       label: "Figma",
       url: "https://www.figma.com/@poornakawishla",
       color: "hover:text-brand-primary",
@@ -179,7 +171,7 @@ const Contact: React.FC = () => {
                     <span className="text-gray-900 dark:text-text-primary">
                       {selectedProjectType}
                     </span>
-                    <ChevronDown
+                    <HiChevronDown
                       size={20}
                       className={`text-gray-400 dark:text-text-secondary transition-transform duration-200 ${
                         isProjectTypeOpen ? "rotate-180" : ""
@@ -288,7 +280,7 @@ const Contact: React.FC = () => {
                   onClick={() => handleSocialLinkClick("https://wa.me/94777604869")}
                   className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-brand-gradient-start to-brand-gradient-end text-white rounded-lg font-medium hover:from-brand-primary hover:to-brand-gradient-end transition-all duration-200 hover:scale-105 group"
                 >
-                  <MessageCircle size={20} className="transition-transform duration-200" />
+                  <HiChatAlt size={20} className="transition-transform duration-200" />
                   <span>Contact on Whatsapp</span>
                 </button>
 
@@ -296,7 +288,7 @@ const Contact: React.FC = () => {
                   onClick={() => handleSocialLinkClick("mailto:hi@poorna.xyz")}
                   className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-brand-gradient-start to-brand-gradient-end text-white rounded-lg font-medium hover:from-brand-primary hover:to-brand-gradient-end transition-all duration-200 hover:scale-105 group"
                 >
-                  <Mail size={20} className="transition-transform duration-200"/>
+                  <HiMail size={20} className="transition-transform duration-200"/>
                   <span>Drop an Email</span>
                 </button>
               </div>

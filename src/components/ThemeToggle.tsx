@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sun, Moon } from 'lucide-react';
+import { HiSun, HiMoon } from 'react-icons/hi';
 import { useTheme } from '../contexts/ThemeContext';
 
 const ThemeToggle: React.FC = () => {
@@ -64,7 +64,7 @@ const ThemeToggle: React.FC = () => {
       >
         {/* Smooth icon transition */}
         <div className="relative w-5 h-5">
-          <Sun 
+          <HiSun 
             size={20} 
             className={`absolute inset-0 transition-all duration-500 ease-in-out ${
               isDark 
@@ -72,7 +72,7 @@ const ThemeToggle: React.FC = () => {
                 : 'rotate-0 scale-100 opacity-100'
             }`} 
           />
-          <Moon 
+          <HiMoon 
             size={20} 
             className={`absolute inset-0 transition-all duration-500 ease-in-out ${
               isDark 

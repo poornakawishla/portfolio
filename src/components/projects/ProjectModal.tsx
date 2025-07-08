@@ -1,5 +1,6 @@
 import React from 'react';
-import { X, ExternalLink, Figma, Calendar, User, Target, Dribbble } from 'lucide-react';
+import { HiX, HiExternalLink, HiCalendar, HiUser, HiTarget } from 'react-icons/hi';
+import { FaFigma, FaBehance } from 'react-icons/fa';
 
 interface ProjectModalProps {
   project: any;
@@ -56,7 +57,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
               onClick={onClose}
               className="w-10 h-10 bg-gray-100 dark:bg-text-secondary/20 rounded-full flex items-center justify-center text-gray-600 dark:text-text-secondary hover:text-brand-primary dark:hover:text-brand-primary transition-all duration-200 hover:scale-110 ml-4"
             >
-              <X size={20} />
+              <HiX size={20} />
             </button>
           </div>
         </div>
@@ -76,7 +77,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6 p-4 bg-gray-50 dark:bg-text-secondary/10 rounded-xl">
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-gradient-to-r from-brand-gradient-start to-brand-gradient-end rounded-lg flex items-center justify-center text-white">
-                <Calendar size={16} />
+                <HiCalendar size={16} />
               </div>
               <div>
                 <p className="text-xs text-gray-500 dark:text-text-secondary">Duration</p>
@@ -87,7 +88,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
             </div>
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-gradient-to-r from-brand-gradient-start to-brand-gradient-end rounded-lg flex items-center justify-center text-white">
-                <User size={16} />
+                <HiUser size={16} />
               </div>
               <div>
                 <p className="text-xs text-gray-500 dark:text-text-secondary">Role</p>
@@ -98,7 +99,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
             </div>
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-gradient-to-r from-brand-gradient-start to-brand-gradient-end rounded-lg flex items-center justify-center text-white">
-                <Target size={16} />
+                <HiTarget size={16} />
               </div>
               <div>
                 <p className="text-xs text-gray-500 dark:text-text-secondary">Platform</p>
@@ -160,7 +161,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                 onClick={() => handleExternalClick(project.figmaUrl)}
                 className="flex items-center justify-center space-x-2 px-4 py-3 bg-gradient-to-r from-brand-gradient-start to-brand-gradient-end text-white rounded-lg font-medium hover:from-brand-primary hover:to-brand-gradient-end transition-all duration-200 hover:scale-105"
               >
-                <Figma size={18} />
+                <FaFigma size={18} />
                 <span>Figma</span>
               </button>
             )}
@@ -169,7 +170,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
               onClick={() => handleExternalClick(project.liveUrl)}
               className="flex items-center justify-center space-x-2 px-4 py-3 border border-gray-300 dark:border-text-secondary/30 text-gray-700 dark:text-text-secondary rounded-lg font-medium hover:border-brand-primary dark:hover:border-brand-primary hover:text-brand-primary dark:hover:text-brand-primary transition-all duration-200 hover:scale-105"
             >
-              <ExternalLink size={18} />
+              <HiExternalLink size={18} />
               <span>Live View</span>
             </button>
 
@@ -177,7 +178,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
               onClick={handleBehanceClick}
               className="flex items-center justify-center space-x-2 px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-all duration-200 hover:scale-105"
             >
-              <Dribbble size={18} />
+             <FaBehance size={18} />
               <span>Behance</span>
             </button>
 
@@ -185,7 +186,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
               onClick={onClose}
               className="flex items-center justify-center space-x-2 px-4 py-3 bg-gray-100 dark:bg-text-secondary/20 text-gray-700 dark:text-text-secondary rounded-lg font-medium hover:bg-gray-200 dark:hover:bg-text-secondary/30 transition-all duration-200 hover:scale-105"
             >
-              <X size={18} />
+             <HiX size={18} />
               <span>Close</span>
             </button>
           </div>

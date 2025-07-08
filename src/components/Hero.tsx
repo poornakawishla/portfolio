@@ -1,12 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  Download,
-  MessageCircle,
-  Palette,
-  Figma,
-  Dribbble,
-} from "lucide-react";
+import { HiDownload, HiChatAlt, HiColorSwatch } from "react-icons/hi";
+import { FaFigma, FaDribbble } from "react-icons/fa";
 import { useParallax } from "../hooks/useParallax";
 
 const Hero: React.FC = () => {
@@ -97,7 +92,7 @@ const Hero: React.FC = () => {
                 onClick={handleWhatsAppClick}
                 className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-brand-gradient-start to-brand-gradient-end text-white rounded-lg font-medium hover:from-brand-primary hover:to-brand-gradient-end transition-all duration-200 shadow-sm hover:shadow-md flex items-center justify-center space-x-2 hover:scale-105 group"
               >
-                <MessageCircle
+                <HiChatAlt
                   size={20}
                   className="transition-transform duration-200"
                 />
@@ -107,7 +102,7 @@ const Hero: React.FC = () => {
                 onClick={handleResumeClick}
                 className="w-full sm:w-auto px-8 py-4 border border-gray-300 dark:border-text-secondary/30 text-gray-700 dark:text-text-secondary rounded-lg font-medium hover:border-brand-primary dark:hover:border-brand-primary hover:text-brand-primary dark:hover:text-brand-primary transition-all duration-200 flex items-center justify-center space-x-2 hover:scale-105 group"
               >
-                <Download
+                <HiDownload
                   size={20}
                   className="transition-transform duration-200"
                 />
@@ -127,7 +122,7 @@ const Hero: React.FC = () => {
                   rel="noopener noreferrer"
                 >
                   <button className="w-10 h-10 bg-white dark:bg-bg-dark border border-gray-200 dark:border-text-secondary/20 rounded-lg flex items-center justify-center text-gray-600 dark:text-text-secondary hover:text-brand-primary dark:hover:text-brand-primary hover:border-brand-primary/50 dark:hover:border-brand-primary/50 transition-all duration-200 hover:scale-110 group">
-                    <Dribbble
+                    <FaDribbble
                       size={18}
                       className="transition-transform duration-200"
                     />
@@ -135,7 +130,7 @@ const Hero: React.FC = () => {
                 </a>
                 <a href="https://www.figma.com/@poornakawishla" target="_blank">
                   <button className="w-10 h-10 bg-white dark:bg-bg-dark border border-gray-200 dark:border-text-secondary/20 rounded-lg flex items-center justify-center text-gray-600 dark:text-text-secondary hover:text-brand-primary dark:hover:text-brand-primary hover:border-brand-primary/50 dark:hover:border-brand-primary/50 transition-all duration-200 hover:scale-110 group">
-                    <Figma
+                    <FaFigma
                       size={18}
                       className="transition-transform duration-200"
                     />
@@ -242,7 +237,7 @@ const Hero: React.FC = () => {
                     : "none",
               }}
             >
-              <Palette size={20} className="lg:w-6 lg:h-6 animate-pulse" />
+              <HiColorSwatch size={20} className="lg:w-6 lg:h-6 animate-pulse" />
             </div>
 
             <div
@@ -254,7 +249,7 @@ const Hero: React.FC = () => {
                     : "none",
               }}
             >
-              <Figma size={24} className="lg:w-7 lg:h-7 animate-pulse" />
+              <FaFigma size={24} className="lg:w-7 lg:h-7 animate-pulse" />
             </div>
           </div>
         </div>

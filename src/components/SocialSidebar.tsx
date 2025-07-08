@@ -1,28 +1,28 @@
 import React from "react";
-import { Linkedin, Instagram, Dribbble, MessageCircle } from "lucide-react";
+import { FaLinkedinIn, FaInstagram, FaDribbble, FaWhatsapp } from "react-icons/fa";
 
 const SocialSidebar: React.FC = () => {
   const socialLinks = [
     {
-      icon: Linkedin,
+      icon: FaLinkedinIn,
       label: "LinkedIn",
       url: "https://www.linkedin.com/in/poornakawishla/",
       color: "hover:bg-brand-primary",
     },
     {
-      icon: Instagram,
+      icon: FaInstagram,
       label: "Instagram",
       url: "https://www.instagram.com/poornakawishla",
       color: "hover:bg-brand-gradient-end",
     },
     {
-      icon: Dribbble,
+      icon: FaDribbble,
       label: "Dribbble",
       url: "https://dribbble.com/poornakawishla",
       color: "hover:bg-brand-primary",
     },
     {
-      icon: MessageCircle,
+      icon: FaWhatsapp,
       label: "WhatsApp",
       url: "https://wa.me/94771234567",
       color: "hover:bg-green-500",
