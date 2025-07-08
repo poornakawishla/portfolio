@@ -1,5 +1,5 @@
 import React from "react";
-import { Heart, Code, Sparkles, Zap, Star, Rocket } from "lucide-react";
+import { HiCode, HiSparkles, HiStar } from "react-icons/hi";
 import logo from "../assets/primary logo.svg"; // Adjust the path as necessary
 
 const Footer: React.FC = () => {
@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
               animationDuration: `${3 + Math.random() * 2}s`,
             }}
           >
-            {i % 2 === 0 && <Star size={4} className="text-brand-primary/20" />}
+            {i % 2 === 0 && <HiStar size={4} className="text-brand-primary/20" />}
             {i % 2 === 1 && (
               <div className="w-1 h-1 bg-brand-primary/20 rounded-full" />
             )}
@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
           <div className="scroll-reveal mb-10 space-y-4">
             <p className="text-gray-300 dark:text-text-secondary text-lg max-w-2xl mx-auto group hover:text-gray-200 dark:hover:text-text-primary transition-colors duration-200">
               I bring a user-first mindset to every design I create. Oh, and if
-              you’re into Formula 1, we’ll have Cofee to talk about.
+              you're into Formula 1, we'll have Cofee to talk about.
             </p>
             <div className="flex items-center justify-center space-x-6 text-sm text-gray-400 dark:text-text-secondary">
               <div className="flex items-center space-x-2 group hover:text-brand-primary transition-colors duration-200">
@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
               <span className="hover:text-brand-primary transition-colors duration-200">
                 made with poorna
               </span>
-              <Code
+              <HiCode
                 size={18}
                 className="text-brand-primary hover:scale-125 transition-transform duration-200 cursor-pointer"
               />

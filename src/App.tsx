@@ -53,6 +53,34 @@ function AnimatedRoutes() {
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [isContentReady, setIsContentReady] = useState(false);
+
+  // Check if all content is loaded
+  useEffect(() => {
+    const checkContentReady = () => {
+      if (document.readyState === 'complete') {
+        // Additional check for images
+        const images = document.querySelectorAll('img');
+        const imagePromises = Array.from(images).map((img) => {
+          if (img.complete) return Promise.resolve();
+          return new Promise((resolve) => {
+            img.onload = resolve;
+            img.onerror = resolve;
+          });
+        });
+
+        Promise.all(imagePromises).then(() => {
+          setIsContentReady(true);
+        });
+      }
+    };
+
+    // Check immediately and on load
+    checkContentReady();
+    window.addEventListener('load', checkContentReady);
+    
+    return () => window.removeEventListener('load', checkContentReady);
+  }, []);
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
