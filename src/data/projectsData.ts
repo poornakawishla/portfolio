@@ -5,9 +5,9 @@ import AURAYA from "../assets/case-studies/AURAYA.jpg";
 export const featuredProjects = [
   {
     id: 1,
-    title: "My Dialog App – UX/UI Redesign for a Smoother Sri Lankan Telecom",
+    title: "My Dialog App – UX/UI Redesign Case study for a Smoother Sri Lankan Users",
     description:
-      "Complete UX/UI redesign of Dialog mobile app, focusing on improving user experience and streamlining telecom services for Sri Lankan users.",
+      "UX/UI redesign of Dialog mobile app, focusing on improving user experience and streamlining telecom services for Sri Lankan users.",
     image: Casestudycover,
     tags: ["UI UX", "Case Study", "Research"],
     figmaUrl:

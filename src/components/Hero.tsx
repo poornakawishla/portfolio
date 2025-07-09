@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { HiDownload, HiChatAlt, HiColorSwatch } from "react-icons/hi";
-import { FaFigma, FaDribbble, FaBehance } from "react-icons/fa";
+import { HiDownload, HiColorSwatch } from "react-icons/hi";
+import { FaFigma, FaDribbble, FaBehance, FaWhatsapp } from "react-icons/fa";
 import { useParallax } from "../hooks/useParallax";
 
 const Hero: React.FC = () => {
@@ -26,7 +26,7 @@ const Hero: React.FC = () => {
 
   const handleResumeClick = () => {
     const resumeUrl =
-      "https://drive.google.com/file/d/1z5-Es0A282X83afGNjwFAuvhDNgIaQkv/view?usp=sharing";
+      "https://drive.google.com/file/d/1aKauj6YVPCMqOGrgpW3zqEwfTGQjx54z/view?usp=drive_link";
     window.open(resumeUrl, "_blank", "noopener,noreferrer");
   };
 
@@ -92,11 +92,11 @@ const Hero: React.FC = () => {
                 onClick={handleWhatsAppClick}
                 className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-brand-gradient-start to-brand-gradient-end text-white rounded-lg font-medium hover:from-brand-primary hover:to-brand-gradient-end transition-all duration-200 shadow-sm hover:shadow-md flex items-center justify-center space-x-2 hover:scale-105 group"
               >
-                <HiChatAlt
+                <FaWhatsapp
                   size={20}
                   className="transition-transform duration-200"
                 />
-                <span>Let's Chat on WhatsApp</span>
+                <span>Chat on WhatsApp</span>
               </button>
               <button
                 onClick={handleResumeClick}

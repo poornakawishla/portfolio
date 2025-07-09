@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ExternalLink, Figma, Eye, X, Layers, ChevronLeft, ChevronRight, Plus } from "lucide-react";
+import {
+  ExternalLink,
+  Figma,
+  Eye,
+  X,
+  Layers,
+  ChevronLeft,
+  ChevronRight,
+  Plus,
+} from "lucide-react";
+import { FaBehance } from "react-icons/fa";
 import { useParallax } from "../hooks/useParallax";
 import { featuredProjects, additionalProjects } from "../data/projectsData";
 import ProjectCard from "./projects/ProjectCard";
@@ -16,8 +26,8 @@ const Projects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const displayedProjects = showAllProjects 
-    ? [...featuredProjects, ...additionalProjects] 
+  const displayedProjects = showAllProjects
+    ? [...featuredProjects, ...additionalProjects]
     : featuredProjects;
 
   const handleViewCaseStudy = (projectId: number) => {
@@ -60,7 +70,9 @@ const Projects: React.FC = () => {
 
   const goPrev = () => {
     if (selectedImages) {
-      setCurrentIndex((currentIndex - 1 + selectedImages.length) % selectedImages.length);
+      setCurrentIndex(
+        (currentIndex - 1 + selectedImages.length) % selectedImages.length
+      );
     }
   };
 
@@ -84,7 +96,9 @@ const Projects: React.FC = () => {
         <div
           className="absolute bottom-10 right-20 w-20 h-20 bg-gradient-to-br from-brand-gradient-end/5 to-brand-primary/5 rounded-lg rotate-45 blur-lg"
           style={{
-            transform: `translateY(${scrollY * 0.08}px) rotate(${45 + scrollY * 0.03}deg)`,
+            transform: `translateY(${scrollY * 0.08}px) rotate(${
+              45 + scrollY * 0.03
+            }deg)`,
           }}
         ></div>
       </div>
@@ -92,7 +106,7 @@ const Projects: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-text-primary mb-4">
-            {showAllProjects ? 'All Projects' : 'Featured Projects'}
+            {showAllProjects ? "All Projects" : "Featured Projects"}
           </h2>
           <p className="text-xl text-gray-600 dark:text-text-secondary max-w-3xl mx-auto">
             A showcase of my recent design work, demonstrating user-centered
@@ -115,17 +129,35 @@ const Projects: React.FC = () => {
         </div>
 
         {/* View More Projects Button */}
-        {/* {!showAllProjects && (
-          <div className="text-center mt-12">
-            <button
-              onClick={() => setShowAllProjects(true)}
-              className="inline-flex items-center space-x-2 px-8 py-4 bg-white dark:bg-bg-dark border-2 border-gray-200 dark:border-text-secondary/20 text-gray-700 dark:text-text-secondary rounded-xl font-medium hover:border-brand-primary dark:hover:border-brand-primary hover:text-brand-primary dark:hover:text-brand-primary transition-all duration-200 hover:scale-105 shadow-sm hover:shadow-md"
-            >
-              <Plus size={20} className="transition-transform duration-200" />
-              <span>View More Projects</span>
-            </button>
-          </div>
-        )} */}
+        {/* 
+<button
+  onClick={() => setShowAllProjects(true)}
+  className="inline-flex items-center space-x-2 px-8 py-4 bg-white dark:bg-bg-dark border-2 border-gray-200 dark:border-text-secondary/20 text-gray-700 dark:text-text-secondary rounded-xl font-medium hover:border-brand-primary dark:hover:border-brand-primary hover:text-brand-primary dark:hover:text-brand-primary transition-all duration-200 hover:scale-105 shadow-sm hover:shadow-md"
+>
+  <Plus size={20} className="transition-transform duration-200" />
+  <span>View More Projects</span>
+</button> 
+*/}
+
+        <div className="text-center mt-12">
+          <button className="inline-flex items-center">
+            <div className="hidden md:flex items-center space-x-3">
+              <button
+                onClick={() =>
+                  window.open(
+                    "https://www.behance.net/poornakawishla",
+                    "_blank"
+                  )
+                }
+                className="group relative flex items-center space-x-2 px-5 py-2.5 bg-gradient-to-r from-brand-gradient-start to-brand-gradient-end text-white rounded-xl font-medium hover:shadow-lg hover:shadow-brand-primary/25 transition-all duration-300 hover:scale-105"
+              >
+                <FaBehance className="w-5 h-5 transition-transform duration-200 group-hover:scale-110" />
+                <span>More UI Screens on My Behance</span>
+                <div className="absolute inset-0 rounded-xl bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+              </button>
+            </div>
+          </button>
+        </div>
 
         {/* Show Less Button */}
         {showAllProjects && (
@@ -141,7 +173,7 @@ const Projects: React.FC = () => {
       </div>
 
       {/* Project Modal */}
-      <ProjectModal 
+      <ProjectModal
         project={selectedProject}
         isOpen={isModalOpen}
         onClose={handleCloseModal}
