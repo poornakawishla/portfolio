@@ -72,7 +72,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
     const loadCheckInterval = setInterval(checkIfLoaded, 100);
 
     // Progress animation
-    const duration = 2000; // 2 seconds minimum as requested
+    const duration = 3000; // 3 seconds minimum
     const interval = 50;
 
     // Show social links after 2 seconds
