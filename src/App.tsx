@@ -4,6 +4,8 @@ import { AnimatePresence } from 'framer-motion';
 import { ThemeProvider } from './contexts/ThemeContext';
 import HomePage from './pages/HomePage';
 import CaseStudyPage from './pages/CaseStudyPage';
+import ProjectDetailPage from './components/projects/ProjectDetailPage';
+import AIImagesPage from './pages/AIImagesPage';
 import ErrorPage from './pages/ErrorPage';
 import LoadingScreen from './components/LoadingScreen';
 import PageTransition from './components/PageTransition';
@@ -27,6 +29,22 @@ function AnimatedRoutes() {
           element={
             <PageTransition>
               <CaseStudyPage />
+            </PageTransition>
+          } 
+        />
+        <Route 
+          path="/ai-images" 
+          element={
+            <PageTransition>
+              <AIImagesPage />
+            </PageTransition>
+          } 
+        />
+        <Route 
+          path="/:category/:slug" 
+          element={
+            <PageTransition>
+              <ProjectDetailPage />
             </PageTransition>
           } 
         />

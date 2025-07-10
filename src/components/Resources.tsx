@@ -51,6 +51,20 @@ const Resources: React.FC = () => {
       ],
     },
     {
+      category: "AI Resources",
+      items: [
+        {
+          icon: Wrench,
+          title: "AI Image Collections",
+          description:
+            "Browse and download my curated collection of AI-generated artwork for your creative projects.",
+          url: "/ai-images",
+          color: "from-purple-500 to-pink-500",
+          isExternal: false,
+        },
+      ],
+    },
+    {
       category: "Products",
       items: [
         {
