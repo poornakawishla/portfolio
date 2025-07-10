@@ -59,6 +59,13 @@ const Header: React.FC<HeaderProps> = ({ activeSection, scrollToSection }) => {
           url: "https://behance.net/poornakawishla",
           isExternal: true,
         },
+        {
+          icon: FaTools,
+          title: "AI Image Gallery",
+          description: "Browse and download AI-generated artwork",
+          url: "/ai-images",
+          isExternal: false,
+        },
       ],
     },
     // {

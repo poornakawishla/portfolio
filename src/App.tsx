@@ -4,7 +4,9 @@ import { AnimatePresence } from 'framer-motion';
 import { ThemeProvider } from './contexts/ThemeContext';
 import HomePage from './pages/HomePage';
 import CaseStudyPage from './pages/CaseStudyPage';
-import ProjectDetailPage from './components/projects/ProjectDetailPage';
+import MyDialogCaseStudy from './pages/projects/MyDialogCaseStudy';
+import ElaraBrandIdentity from './pages/projects/ElaraBrandIdentity';
+import AurayaGraphicDesign from './pages/projects/AurayaGraphicDesign';
 import AIImagesPage from './pages/AIImagesPage';
 import ErrorPage from './pages/ErrorPage';
 import LoadingScreen from './components/LoadingScreen';
@@ -33,18 +35,34 @@ function AnimatedRoutes() {
           } 
         />
         <Route 
-          path="/ai-images" 
+          path="/mydialog-case-study" 
           element={
             <PageTransition>
-              <AIImagesPage />
+              <MyDialogCaseStudy />
             </PageTransition>
           } 
         />
         <Route 
-          path="/:category/:slug" 
+          path="/elara-brand-identity" 
           element={
             <PageTransition>
-              <ProjectDetailPage />
+              <ElaraBrandIdentity />
+            </PageTransition>
+          } 
+        />
+        <Route 
+          path="/auraya-graphic-design" 
+          element={
+            <PageTransition>
+              <AurayaGraphicDesign />
+            </PageTransition>
+          } 
+        />
+        <Route 
+          path="/ai-images" 
+          element={
+            <PageTransition>
+              <AIImagesPage />
             </PageTransition>
           } 
         />
