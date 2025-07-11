@@ -18,7 +18,6 @@ import artwork5 from "../assets/artworks/artwork (5).jpg";
 
 const artworks = [artwork1, artwork2, artwork3, artwork4, artwork5];
 
-
 const AIImagesPage: React.FC = () => {
   const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -85,7 +84,7 @@ const AIImagesPage: React.FC = () => {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold text-gray-900 dark:text-text-primary mb-6 leading-tight">
-           Artworks Collection
+            Artworks Collection
           </h1>
           <p className="text-xl text-gray-600 dark:text-text-secondary max-w-3xl mx-auto">
             My AI-generated and manipulated visual collection — made for use as wallpapers, moodboards, or pure inspiration.
@@ -123,7 +122,6 @@ const AIImagesPage: React.FC = () => {
           ))}
         </div>
 
-        {/* Lightbox */}
         {selectedImage && (
           <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4">
             <button
@@ -179,10 +177,15 @@ const AIImagesPage: React.FC = () => {
             I can create personalized visuals from scratch or remix AI images to match your vibe or project.
           </p>
           <button
-            onClick={() => navigate("/#contact")}
+            onClick={() =>
+              window.open(
+                "https://wa.me/94777604869?text=Hey!%20I%20saw%20your%20AI%20artworks%20%E2%80%94%20can%20I%20get%20something%20custom%3F",
+                "_blank"
+              )
+            }
             className="px-8 py-3 bg-gradient-to-r from-brand-gradient-start to-brand-gradient-end text-white rounded-lg font-medium hover:scale-105 transition-all duration-200 shadow-sm hover:shadow-md"
           >
-            Get Custom Work
+            Message on WhatsApp
           </button>
         </div>
       </main>

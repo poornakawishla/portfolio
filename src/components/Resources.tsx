@@ -58,7 +58,7 @@ const Resources: React.FC = () => {
           title: "Image Collections",
           description:
             "Browse and download My AI-generated and manipulated visual collection — made for use as wallpapers, moodboards, or pure inspiration.",
-          url: "/ai-images",
+          url: "/artwoks",
           color: "from-purple-500 to-pink-500",
           isExternal: false,
         },
