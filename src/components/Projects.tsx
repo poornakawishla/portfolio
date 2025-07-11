@@ -128,16 +128,6 @@ const Projects: React.FC = () => {
           ))}
         </div>
 
-        {/* View More Projects Button */}
-        {/* 
-<button
-  onClick={() => setShowAllProjects(true)}
-  className="inline-flex items-center space-x-2 px-8 py-4 bg-white dark:bg-bg-dark border-2 border-gray-200 dark:border-text-secondary/20 text-gray-700 dark:text-text-secondary rounded-xl font-medium hover:border-brand-primary dark:hover:border-brand-primary hover:text-brand-primary dark:hover:text-brand-primary transition-all duration-200 hover:scale-105 shadow-sm hover:shadow-md"
->
-  <Plus size={20} className="transition-transform duration-200" />
-  <span>View More Projects</span>
-</button> 
-*/}
 
         <div className="text-center mt-12">
           <button className="inline-flex items-center">
