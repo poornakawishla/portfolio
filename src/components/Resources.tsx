@@ -51,7 +51,7 @@ const Resources: React.FC = () => {
       ],
     },
     {
-      category: "AI Resources",
+      category: "Image Resources",
       items: [
         {
           icon: Wrench,
