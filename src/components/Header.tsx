@@ -1,22 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
-import Logo from "../assets/Wide Logo-2.svg";
+import Logo from "../assets/Logo.svg";
 import { useNavigate } from "react-router-dom";
-import {
-  User,
-  Briefcase,
-  Mail,
-  ChevronDown,
-  FileText,
-  Edit3,
-  Layers,
-  Linkedin,
-  X,
-  Menu,
-  Wrench,
-  Globe,
-  Palette,
-  Code,
-} from "lucide-react";
+import { HiUser, HiBriefcase, HiMail, HiChevronDown, HiX, HiMenu, HiGlobe } from "react-icons/hi";
+import { FaLinkedinIn, FaFileAlt, FaPencilAlt, FaLayerGroup, FaTools, FaBehance } from "react-icons/fa";
 
 interface HeaderProps {
   activeSection: string;
@@ -31,9 +17,9 @@ const Header: React.FC<HeaderProps> = ({ activeSection, scrollToSection }) => {
   const navigate = useNavigate();
 
   const navItems = [
-    { id: "about", label: "About", icon: User },
-    { id: "projects", label: "Work", icon: Briefcase },
-    { id: "contact", label: "Contact", icon: Mail },
+    { id: "about", label: "About", icon: HiUser },
+    { id: "projects", label: "Work", icon: HiBriefcase },
+    { id: "contact", label: "Contact", icon: HiMail },
   ];
 
   const resourceItems = [
@@ -41,14 +27,14 @@ const Header: React.FC<HeaderProps> = ({ activeSection, scrollToSection }) => {
       category: "Design Resources",
       items: [
         {
-          icon: Palette,
+          icon: FaFileAlt,
           title: "Design Files",
           description: "Complete design files with all project components",
           url: "https://www.figma.com/community/file/1422427483108442267",
           isExternal: true,
         },
         {
-          icon: Layers,
+          icon: FaLayerGroup,
           title: "Design System",
           description: "Comprehensive design system and components",
           url: "https://www.figma.com/community/file/1508087863713557379/layrr-design-modern-ui-design-system-v1",
@@ -60,10 +46,17 @@ const Header: React.FC<HeaderProps> = ({ activeSection, scrollToSection }) => {
       category: "Content",
       items: [
         {
-          icon: Edit3,
+          icon: FaPencilAlt,
           title: "Medium Profile",
           description: "Read my latest articles and insights",
           url: "https://medium.com/@poornakawishla",
+          isExternal: true,
+        },
+        {
+          icon: FaBehance,
+          title: "Behance Portfolio",
+          description: "View my creative work and projects",
+          url: "https://behance.net/poornakawishla",
           isExternal: true,
         },
       ],
@@ -173,7 +166,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, scrollToSection }) => {
                 <img
                   src={Logo}
                   alt="Poorna Logo"
-                  className="h-14 w-auto transition-transform duration-200 group-hover:scale-105"
+                  className="h-12 w-auto transition-transform duration-200 group-hover:scale-105"
                 />
                 <div className="absolute -inset-1 bg-gradient-to-r from-brand-gradient-start/20 to-brand-gradient-end/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 -z-10"></div>
               </div>
@@ -213,12 +206,12 @@ const Header: React.FC<HeaderProps> = ({ activeSection, scrollToSection }) => {
                       : "text-gray-600 dark:text-text-secondary hover:text-brand-primary dark:hover:text-brand-primary hover:bg-gray-50 dark:hover:bg-white/5"
                   }`}
                 >
-                  <Globe
+                  <HiGlobe
                     size={16}
                     className="transition-transform duration-200 group-hover:scale-110"
                   />
                   <span>Resources</span>
-                  <ChevronDown
+                  <HiChevronDown
                     size={14}
                     className={`transition-transform duration-200 ${
                       isResourcesOpen ? "rotate-180" : ""
@@ -267,7 +260,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, scrollToSection }) => {
                                     {item.title}
                                   </p>
                                   {item.isExternal && (
-                                    <Globe
+                                    <HiGlobe
                                       size={12}
                                       className="text-gray-400 dark:text-text-secondary"
                                     />
@@ -293,7 +286,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, scrollToSection }) => {
                 onClick={handleLinkedInClick}
                 className="group relative flex items-center space-x-2 px-5 py-2.5 bg-gradient-to-r from-brand-gradient-start to-brand-gradient-end text-white rounded-xl font-medium hover:shadow-lg hover:shadow-brand-primary/25 transition-all duration-300 hover:scale-105"
               >
-                <Linkedin
+                <FaLinkedinIn
                   size={16}
                   className="transition-transform duration-200 group-hover:scale-110"
                 />
@@ -308,14 +301,14 @@ const Header: React.FC<HeaderProps> = ({ activeSection, scrollToSection }) => {
               className="md:hidden p-2.5 rounded-xl text-gray-600 dark:text-text-secondary hover:text-brand-primary dark:hover:text-brand-primary hover:bg-gray-50 dark:hover:bg-white/5 transition-all duration-200 hover:scale-110 group relative z-10"
             >
               <div className="relative w-6 h-6">
-                <Menu
+                <HiMenu
                   className={`absolute inset-0 transition-all duration-300 ${
                     isMobileMenuOpen
                       ? "rotate-90 scale-0"
                       : "rotate-0 scale-100"
                   } group-hover:scale-110`}
                 />
-                <X
+                <HiX
                   className={`absolute inset-0 transition-all duration-300 ${
                     isMobileMenuOpen
                       ? "rotate-0 scale-100"
@@ -347,7 +340,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, scrollToSection }) => {
                 onClick={closeMobileMenu}
                 className="p-2.5 rounded-xl text-gray-600 dark:text-text-secondary hover:text-brand-primary dark:hover:text-brand-primary hover:bg-gray-50 dark:hover:bg-white/5 transition-all duration-200"
               >
-                <X size={24} />
+                <HiX size={24} />
               </button>
             </div>
 
@@ -384,10 +377,10 @@ const Header: React.FC<HeaderProps> = ({ activeSection, scrollToSection }) => {
                   className="w-full flex items-center justify-between px-5 py-4 text-gray-600 dark:text-text-secondary hover:text-brand-primary dark:hover:text-brand-primary hover:bg-gray-50 dark:hover:bg-white/5 transition-all duration-200 rounded-xl font-medium"
                 >
                   <div className="flex items-center space-x-4">
-                    <Globe size={20} />
+                    <HiGlobe size={20} />
                     <span>Resources</span>
                   </div>
-                  <ChevronDown
+                  <HiChevronDown
                     size={16}
                     className={`transition-transform duration-200 ${
                       isMobileResourcesOpen ? "rotate-180" : ""
@@ -419,7 +412,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, scrollToSection }) => {
                                 {item.title}
                               </span>
                               {item.isExternal && (
-                                <Globe
+                                <HiGlobe
                                   size={12}
                                   className="text-gray-400 dark:text-text-secondary"
                                 />
@@ -446,7 +439,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, scrollToSection }) => {
                 }}
                 className="w-full flex items-center justify-center space-x-3 px-5 py-4 bg-gradient-to-r from-brand-gradient-start to-brand-gradient-end text-white rounded-xl font-medium hover:shadow-lg hover:shadow-brand-primary/25 transition-all duration-200 hover:scale-105"
               >
-                <Linkedin
+                <FaLinkedinIn
                   size={18}
                   className="transition-transform duration-200"
                 />

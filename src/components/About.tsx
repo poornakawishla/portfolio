@@ -1,5 +1,6 @@
 import React from "react";
-import { Palette, Users, Lightbulb, Target } from "lucide-react";
+import { HiColorSwatch, HiUsers, HiLightBulb } from "react-icons/hi";
+import { Target } from "lucide-react";
 import { useParallax } from "../hooks/useParallax";
 
 const About: React.FC = () => {
@@ -7,17 +8,17 @@ const About: React.FC = () => {
 
   const skills = [
     {
-      icon: Palette,
+      icon: HiColorSwatch,
       title: "Visual Design",
       description: "Creating beautiful, cohesive visual experiences",
     },
     {
-      icon: Users,
+      icon: HiUsers,
       title: "User Research",
       description: "Understanding user needs through research and testing",
     },
     {
-      icon: Lightbulb,
+      icon: HiLightBulb,
       title: "Problem Solving",
       description: "Turning complex problems into simple solutions",
     },

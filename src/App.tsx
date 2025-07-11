@@ -4,6 +4,8 @@ import { AnimatePresence } from 'framer-motion';
 import { ThemeProvider } from './contexts/ThemeContext';
 import HomePage from './pages/HomePage';
 import CaseStudyPage from './pages/CaseStudyPage';
+import ProjectDetailPage from './components/projects/ProjectDetailPage';
+import AIImagesPage from './pages/AIImagesPage';
 import ErrorPage from './pages/ErrorPage';
 import LoadingScreen from './components/LoadingScreen';
 import PageTransition from './components/PageTransition';
@@ -31,6 +33,22 @@ function AnimatedRoutes() {
           } 
         />
         <Route 
+          path="/ai-images" 
+          element={
+            <PageTransition>
+              <AIImagesPage />
+            </PageTransition>
+          } 
+        />
+        <Route 
+          path="/:category/:slug" 
+          element={
+            <PageTransition>
+              <ProjectDetailPage />
+            </PageTransition>
+          } 
+        />
+        <Route 
           path="/error" 
           element={
             <PageTransition>
@@ -53,6 +71,34 @@ function AnimatedRoutes() {
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [isContentReady, setIsContentReady] = useState(false);
+
+  // Check if all content is loaded
+  useEffect(() => {
+    const checkContentReady = () => {
+      if (document.readyState === 'complete') {
+        // Additional check for images
+        const images = document.querySelectorAll('img');
+        const imagePromises = Array.from(images).map((img) => {
+          if (img.complete) return Promise.resolve();
+          return new Promise((resolve) => {
+            img.onload = resolve;
+            img.onerror = resolve;
+          });
+        });
+
+        Promise.all(imagePromises).then(() => {
+          setIsContentReady(true);
+        });
+      }
+    };
+
+    // Check immediately and on load
+    checkContentReady();
+    window.addEventListener('load', checkContentReady);
+    
+    return () => window.removeEventListener('load', checkContentReady);
+  }, []);
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
