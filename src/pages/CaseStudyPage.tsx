@@ -12,7 +12,7 @@ import ThemeToggle from "../components/ThemeToggle";
 import Coverimage from "../assets/case-studies/Thumbnail.png";
 import mainflow from "../assets/case-studies/flowmain.png";
 import loginflow from "../assets/case-studies/flowlogin.png";
-import Darkmodee from "../assets/case-studies/darkmod.png";
+import Darkmodee from "../assets/case-studies/darkmod.svg";
 import bookmark from "../assets/case-studies/bookmark.svg";
 import emptywalletchange from "../assets/case-studies/empty-wallet-change.svg";
 import home2 from "../assets/case-studies/home-2.svg";

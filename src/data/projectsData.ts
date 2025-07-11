@@ -1,5 +1,5 @@
 import Casestudycover from "../assets/case-studies/Thumbnail.png";
-import Elara from "../assets/case-studies/elara.png";
+import Elara from "../assets/Elara/Cover.svg";
 import AURAYA from "../assets/case-studies/AURAYA.jpg";
 
 export const featuredProjects = [

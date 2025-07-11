@@ -25,6 +25,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
   const [progress, setProgress] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [showSocialLinks, setShowSocialLinks] = useState(false);
 
   const loadingSteps = [
     { icon: HiColorSwatch, text: 'Loading Assets...', color: 'from-blue-500 to-purple-500' },
@@ -73,6 +74,11 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
     // Progress animation
     const duration = 3000; // 3 seconds minimum
     const interval = 50;
+
+    // Show social links after 2 seconds
+    setTimeout(() => {
+      setShowSocialLinks(true);
+    }, 2000);
 
     progressTimer = setInterval(() => {
       setProgress((prev) => {
@@ -288,8 +294,8 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
         {/* Social Media Links */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.8 }}
+          animate={{ opacity: showSocialLinks ? 1 : 0, y: showSocialLinks ? 0 : 30 }}
+          transition={{ duration: 0.8 }}
           className="mb-6 md:mb-8"
         >
           <p className="text-gray-400 text-xs md:text-sm mb-3 md:mb-4">Connect with me</p>
@@ -298,8 +304,8 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
               <motion.button
                 key={url}
                 initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1.2 + index * 0.1, duration: 0.3 }}
+                animate={{ opacity: showSocialLinks ? 1 : 0, scale: showSocialLinks ? 1 : 0 }}
+                transition={{ delay: showSocialLinks ? index * 0.1 : 0, duration: 0.3 }}
                 onClick={() => handleSocialClick(url)}
                 className={`w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center text-white/70 ${color} transition-all duration-300 hover:scale-110 hover:bg-white/20 border border-white/10 hover:border-white/30`}
                 whileHover={{ y: -2 }}
