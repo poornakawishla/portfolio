@@ -55,9 +55,9 @@ const Resources: React.FC = () => {
       items: [
         {
           icon: Wrench,
-          title: "AI Image Collections",
+          title: "Image Collections",
           description:
-            "Browse and download my curated collection of AI-generated artwork for your creative projects.",
+            "Browse and download My AI-generated and manipulated visual collection — made for use as wallpapers, moodboards, or pure inspiration.",
           url: "/ai-images",
           color: "from-purple-500 to-pink-500",
           isExternal: false,
