@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import About from '../components/About';
-import UpdatedProjects from '../components/projects/UpdatedProjects';
+import Projects from '../components/Projects';
 import Resources from '../components/Resources';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
@@ -55,7 +55,7 @@ const HomePage: React.FC = () => {
       <Header activeSection={activeSection} scrollToSection={scrollToSection} />
       <Hero />
       <About />
-      <UpdatedProjects />
+      <Projects />
       <Resources />
       <Contact />
       <Footer />
