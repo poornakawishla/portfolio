@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
-import { ThemeProvider } from './contexts/ThemeContext';
-import HomePage from './pages/HomePage';
-import CaseStudyPage from './pages/CaseStudyPage';
-import ProjectDetailPage from './components/projects/ProjectDetailPage';
-import AIImagesPage from './pages/AIImagesPage';
-import ErrorPage from './pages/ErrorPage';
-import LoadingScreen from './components/LoadingScreen';
-import PageTransition from './components/PageTransition';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import { ThemeProvider } from "./contexts/ThemeContext";
+import HomePage from "./pages/HomePage";
+import CaseStudyPage from "./pages/CaseStudyPage";
+import ProjectDetailPage from "./components/projects/ProjectDetailPage";
+import AIImagesPage from "./pages/AIImagesPage";
+import ErrorPage from "./pages/ErrorPage";
+import LoadingScreen from "./components/LoadingScreen";
+import PageTransition from "./components/PageTransition";
+import ElaraBrandIdentity from "./pages/projects/ElaraBrandIdentity";
+import AurayaGraphicDesign from "./pages/projects/AurayaGraphicDesign";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -29,6 +31,22 @@ function AnimatedRoutes() {
           element={
             <PageTransition>
               <CaseStudyPage />
+            </PageTransition>
+          } 
+        />
+        <Route 
+          path="/Brand-identity/Elara" 
+          element={
+            <PageTransition>
+              <ElaraBrandIdentity />
+            </PageTransition>
+          } 
+        />
+        <Route 
+          path="/graphic/Auraya" 
+          element={
+            <PageTransition>
+              <AurayaGraphicDesign />
             </PageTransition>
           } 
         />
@@ -73,11 +91,9 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isContentReady, setIsContentReady] = useState(false);
 
-  // Check if all content is loaded
   useEffect(() => {
     const checkContentReady = () => {
       if (document.readyState === 'complete') {
-        // Additional check for images
         const images = document.querySelectorAll('img');
         const imagePromises = Array.from(images).map((img) => {
           if (img.complete) return Promise.resolve();
@@ -93,7 +109,6 @@ function App() {
       }
     };
 
-    // Check immediately and on load
     checkContentReady();
     window.addEventListener('load', checkContentReady);
     

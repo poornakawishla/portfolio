@@ -31,15 +31,20 @@ const UpdatedProjects: React.FC = () => {
     : featuredProjects;
 
   const handleViewProject = (project: any) => {
-    // Navigate to custom project pages
-    if (project.id === 1) {
-      navigate('/case-study/mydialog');
-    } else if (project.id === 2) {
-      navigate('/elara-brand-identity');
-    } else if (project.id === 3) {
-      navigate('/auraya-graphic-design');
-    } else {
-      navigate('/error');
+    console.log("Navigating for project:", project); // Debug log
+    switch (project.id) {
+      case 1:
+        navigate("/case-study/mydialog"); // Matches existing route
+        break;
+      case 2:
+        navigate("/Brand-identity/Elara"); // Uses dynamic route
+        break;
+      case 3:
+        navigate("/graphic/Auraya"); // Uses dynamic route
+        break;
+      default:
+        navigate("/error");
+        break;
     }
   };
 
@@ -130,8 +135,6 @@ const UpdatedProjects: React.FC = () => {
             />
           ))}
         </div>
-
-
       </div>
 
       {/* Project Modal */}
